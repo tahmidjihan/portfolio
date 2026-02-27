@@ -9,10 +9,10 @@ export default function AboutSection() {
               <img 
                 alt="Portrait of Tahmid Jihan" 
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtk5JBqOT245ZlPpTSvxsOzRHP9G2IibjCt6nFFK80XkrohjOSv4X4NyTpfYGOTzc076QN7AsaEJl_zr1PzfQSDiOT7ch-EZR8Izm2StG4TnKGxAYmXO_8hb8IA6a-CZZup2MkOpJsTnBW9iRgLuYj3E4XDQX0fhGiIzRLMvy4Mlrr3rPV9zqHWme2hndHkq65dOT1aYbkegXb_N0ESTibALEmYWw2Vfrj7oLyG4kXnc-UtotmIbr3pmmHtiMHqhJfwX1oeqGEnz8"
+                src="./tahmid.png"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
-                <p className="text-white text-sm font-medium tracking-widest uppercase">Lead Developer</p>
+                <p className="text-white text-sm font-medium tracking-widest uppercase">Developer</p>
               </div>
             </div>
           </div>

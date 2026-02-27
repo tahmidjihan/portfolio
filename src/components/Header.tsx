@@ -1,3 +1,4 @@
+'use client'
 export default function Header() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);

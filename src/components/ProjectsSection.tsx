@@ -5,17 +5,17 @@ export default function ProjectsSection() {
         <h2 className="text-4xl font-bold font-display mb-16 text-center">Latest Project</h2>
         
         <div className="grid md:grid-cols-2 gap-12 items-center bg-white/5 rounded-3xl p-8 md:p-12 border border-white/10">
-          <div className="flex items-center justify-center aspect-square md:aspect-auto md:h-96 bg-primary/10 rounded-2xl overflow-hidden relative group">
+          {/* <div className="flex items-center justify-center aspect-square md:aspect-auto md:h-96 bg-primary/10 rounded-2xl overflow-hidden relative group">
             <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             <div className="relative z-10 text-center">
               <span className="material-symbols-outlined text-[120px] text-primary mb-4 block">coffee</span>
               <p className="text-2xl font-bold font-display tracking-tight text-primary">TEACUP</p>
             </div>
           </div>
-          
+           */}
           <div className="space-y-6">
             <div className="flex items-center space-x-2 text-primary text-sm font-semibold tracking-widest uppercase">
-              <span className="w-8 h-[1px] bg-primary"></span>
+      
               <span>Featured Development</span>
             </div>
             
@@ -26,17 +26,12 @@ export default function ProjectsSection() {
             </p>
             
             <div className="pt-6 flex flex-wrap gap-6 items-center">
+             
               <a 
                 href="#" 
-                className="inline-flex items-center justify-center px-8 py-4 bg-primary hover:bg-indigo-700 text-white font-bold rounded-full transition-all duration-300 shadow-lg shadow-primary/25"
+                className="group bg-white p-3 px-8 rounded-full flex items-center space-x-2 text-black font-medium hover:text-primary transition-colors"
               >
-                Launch Project
-              </a>
-              <a 
-                href="#" 
-                className="group flex items-center space-x-2 text-white font-medium hover:text-primary transition-colors"
-              >
-                <span>Visit Case Study</span>
+                <span>Launch a business</span>
                 <span className="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
               </a>
             </div>
