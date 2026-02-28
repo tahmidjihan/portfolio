@@ -1,5 +1,13 @@
 'use client'
+
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'
+
 export default function HeroSection() {
+  const titleAnim = useScrollAnimation({ threshold: 0.1 })
+  const subtitleAnim = useScrollAnimation({ threshold: 0.1 })
+  const descAnim = useScrollAnimation({ threshold: 0.1 })
+  const socialAnim = useScrollAnimation({ threshold: 0.1 })
+
   const scrollToNext = () => {
     const aboutSection = document.getElementById('about');
     if (aboutSection) {
@@ -17,16 +25,20 @@ export default function HeroSection() {
         </h1>
         
         <h2 className="text-xl md:text-2xl text-primary font-medium mb-8 tracking-wide">
-          Web developer, Creative problem solver
+          Full-Stack Web Developer & Entrepreneur
         </h2>
         
         <p className="max-w-xl mx-auto text-slate-400 leading-relaxed mb-10 text-lg">
-          Building digital experiences that combine technical precision with creative flair. Passionate about solving complex problems through clean, efficient code and intuitive user interfaces.
+          Building high-performance, scalable digital solutions with a proven track record of working with international companies, particularly within the Australian market.
         </p>
         
-        <div className="flex items-center justify-center space-x-4">
+        <div 
+          ref={socialAnim.ref}
+          className={`flex items-center justify-center space-x-4 animate-on-scroll stagger-3 ${socialAnim.isVisible ? 'is-visible' : ''}`}
+        >
           <a 
-            href="#" 
+            href="https://github.com/tahmidjihan" 
+            target="_blank"
             className="w-12 h-12 flex items-center justify-center rounded-xl border border-white/20 hover:border-primary hover:text-primary transition-all duration-300 group"
             aria-label="GitHub"
           >
@@ -36,17 +48,7 @@ export default function HeroSection() {
           </a>
           
           <a 
-            href="#" 
-            className="w-12 h-12 flex items-center justify-center rounded-xl border border-white/20 hover:border-primary hover:text-primary transition-all duration-300 group"
-            aria-label="LinkedIn"
-          >
-            <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-            </svg>
-          </a>
-          
-          <a 
-            href="#" 
+            href="mailto:tahmid@teacup.website" 
             className="w-12 h-12 flex items-center justify-center rounded-xl border border-white/20 hover:border-primary hover:text-primary transition-all duration-300 group"
             aria-label="Email"
           >
@@ -54,11 +56,11 @@ export default function HeroSection() {
           </a>
           
           <a 
-            href="#" 
+            href="https://teacup.website" 
             className="w-12 h-12 flex items-center justify-center rounded-xl border border-white/20 hover:border-primary hover:text-primary transition-all duration-300 group"
-            aria-label="Download Resume"
+            aria-label="Teacup Website"
           >
-            <span className="material-symbols-outlined">download</span>
+            <span className="material-symbols-outlined">language</span>
           </a>
         </div>
         

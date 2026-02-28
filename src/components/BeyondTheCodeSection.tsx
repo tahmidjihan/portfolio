@@ -1,10 +1,14 @@
+'use client'
+
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'
+
 export default function BeyondTheCodeSection() {
   return (
     <section className="py-32 border-t border-white/5" id="beyond-the-code">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-20">
-          <h2 className="text-4xl font-bold font-display mb-4">Beyond The Code</h2>
-          <p className="text-slate-400">My creative pursuits and passions outside of programming</p>
+          <h2 className="text-4xl font-bold font-display mb-4">Personal Interests & Hobbies</h2>
+          <p className="text-slate-400">Tahmid is a polymath with a deep appreciation for the intersection of logic and creativity</p>
         </div>
         
         <div className="grid md:grid-cols-2 gap-12">
@@ -14,18 +18,17 @@ export default function BeyondTheCodeSection() {
               <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-primary">
                 <span className="material-symbols-outlined text-2xl">music_note</span>
               </div>
-              <h3 className="text-2xl font-bold font-display">Music Production</h3>
+              <h3 className="text-2xl font-bold font-display">Orchestral Music</h3>
             </div>
             
             <p className="text-slate-400 leading-relaxed mb-6">
-              I produce electronic music focusing on ambient and experimental soundscapes. My work explores the intersection of technology and artistry, using digital tools to create immersive audio experiences. I've released several tracks on independent platforms and collaborate with other artists to push the boundaries of electronic music.
+              His primary hobby is creating orchestral music, showcasing a sophisticated level of musical composition and arrangement. He explores the intersection of technology and artistry through sophisticated audio experiences.
             </p>
             
             <div className="flex flex-wrap gap-2">
-              <span className="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">Ableton Live</span>
-              <span className="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">Sound Design</span>
-              <span className="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">Synthesis</span>
-              <span className="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">Mixing</span>
+              <span className="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">Composition</span>
+              <span className="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">Arrangement</span>
+              <span className="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">Digital Audio</span>
             </div>
           </div>
           
@@ -35,27 +38,22 @@ export default function BeyondTheCodeSection() {
               <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-primary">
                 <span className="material-symbols-outlined text-2xl">edit</span>
               </div>
-              <h3 className="text-2xl font-bold font-display">Creative Writing</h3>
+              <h3 className="text-2xl font-bold font-display">Creative Arts</h3>
             </div>
             
             <p className="text-slate-400 leading-relaxed mb-6">
-              I write short stories and technical articles exploring the human side of technology. My work has been featured in various online publications, where I discuss topics ranging from AI ethics to the philosophy of programming. I believe in the power of storytelling to make complex technical concepts accessible and engaging.
+              He also explores abstract art and songwriting, combining visual creativity with lyrical expression. His work spans multiple creative mediums, showcasing versatility and artistic depth.
             </p>
             
             <div className="flex flex-wrap gap-2">
-              <span className="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">Technical Writing</span>
-              <span className="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">Fiction</span>
-              <span className="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">Blogging</span>
-              <span className="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">Documentation</span>
+              <span className="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">Abstract Art</span>
+              <span className="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">Writting</span>
+              <span className="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">Creative Expression</span>
             </div>
           </div>
         </div>
         
-        <div className="mt-16 text-center">
-          <p className="text-slate-500 italic">
-            "Creativity is not just about code—it's about expressing ideas through different mediums and finding beauty in unexpected places."
-          </p>
-        </div>
+        
       </div>
     </section>
   );
