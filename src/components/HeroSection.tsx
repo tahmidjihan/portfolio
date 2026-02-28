@@ -71,7 +71,7 @@ export default function HeroSection() {
         
         <button 
           onClick={scrollToNext}
-          className="mt-20 animate-bounce text-slate-400 hover:text-primary transition-colors flex items-center justify-center"
+          className="mt-20 animate-bounce mx-auto text-slate-400 hover:text-primary transition-colors flex items-center justify-center"
           aria-label="Scroll to next section"
         >
           {isLoading ? (
