@@ -1,17 +1,22 @@
 'use client'
 
+import { useState } from 'react'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
+import Spinner from './Spinner'
 
 export default function HeroSection() {
   const titleAnim = useScrollAnimation({ threshold: 0.1 })
   const subtitleAnim = useScrollAnimation({ threshold: 0.1 })
   const descAnim = useScrollAnimation({ threshold: 0.1 })
   const socialAnim = useScrollAnimation({ threshold: 0.1 })
+  const [isLoading, setIsLoading] = useState(false)
 
   const scrollToNext = () => {
+    setIsLoading(true)
     const aboutSection = document.getElementById('about');
     if (aboutSection) {
       aboutSection.scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => setIsLoading(false), 1000)
     }
   };
 
@@ -66,10 +71,14 @@ export default function HeroSection() {
         
         <button 
           onClick={scrollToNext}
-          className="mt-20 animate-bounce text-slate-400 hover:text-primary transition-colors"
+          className="mt-20 animate-bounce text-slate-400 hover:text-primary transition-colors flex items-center justify-center"
           aria-label="Scroll to next section"
         >
-          <span className="material-symbols-outlined">expand_more</span>
+          {isLoading ? (
+            <Spinner size="sm" />
+          ) : (
+            <span className="material-symbols-outlined">expand_more</span>
+          )}
         </button>
       </div>
     </section>
