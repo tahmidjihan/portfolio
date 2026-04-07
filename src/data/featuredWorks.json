@@ -6,7 +6,7 @@
     "techStack": "NEXT.JS / NODE",
     "image": "/portfolios/1.png",
     "liveLink": "https://foodhub-frontend-sigma.vercel.app/",
-    "repoLink": null
+    "repoLink": "https://github.com/tahmidjihan/Foodhub-frontend"
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "techStack": "NEXT.JS / NODE",
     "image": "/portfolios/2.png",
     "liveLink": "https://teacup.website",
-    "repoLink": null
+    "repoLink": "https://github.com/teacupweb/teacup"
   },
   {
     "id": 3,
@@ -23,8 +23,8 @@
     "category": "Clinic Management System",
     "techStack": "NEXT.JS / STRIPE / NODE",
     "image": "/portfolios/3.png",
-    "liveLink": null,
-    "repoLink": null
+    "liveLink": "https://dentaflow-rho.vercel.app/",
+    "repoLink": "https://github.com/tahmidjihan/dentaFlow-frontend"
   },
   {
     "id": 4,
@@ -32,8 +32,8 @@
     "category": "Habit Tracking App",
     "techStack": "NEXT.JS / SUPABASE",
     "image": "/portfolios/4.png",
-    "liveLink": null,
-    "repoLink": null
+    "liveLink": "https://habiterr.netlify.app/",
+    "repoLink": "https://github.com/teacupweb/habiterr"
   },
   {
     "id": 5,
@@ -41,8 +41,8 @@
     "category": "Query to site demo generator.",
     "techStack": "NEXT.JS",
     "image": "/portfolios/5.png",
-    "liveLink": null,
-    "repoLink": null
+    "liveLink": "https://teacup-demo.netlify.app/",
+    "repoLink": "https://github.com/teacupweb/demos"
   },
   {
     "id": 6,
@@ -68,7 +68,7 @@
     "category": "CONSULTING WEBSITE",
     "techStack": "NEXT.JS / TYPESCRIPT",
     "image": "/portfolios/8.png",
-    "liveLink": null,
+    "liveLink": "https://rplcatalyst.com.au",
     "repoLink": null
   }
 ]

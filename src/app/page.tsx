@@ -145,15 +145,28 @@ function FeaturedProjectsSection() {
                     initial={{ opacity: 0 }}
                     whileHover={{ opacity: 1 }}
                   >
-                    <a
-                      href={project.liveLink}
-                      target='_blank'
-                      rel='noopener noreferrer'
-                      className='px-6 py-3 bg-[#914110] text-white font-bold font-technical text-xs tracking-widest hover:bg-white hover:text-black transition-all duration-300'
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      LIVE DEMO
-                    </a>
+                    <div className='flex items-center gap-4'>
+                      <a
+                        href={project.liveLink}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        className='px-6 py-3 bg-[#914110] text-white font-bold font-technical text-xs tracking-widest hover:bg-white hover:text-black transition-all duration-300'
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        LIVE DEMO
+                      </a>
+                      {project.repoLink && (
+                        <a
+                          href={project.repoLink}
+                          target='_blank'
+                          rel='noopener noreferrer'
+                          className='px-6 py-3 border-2 border-white text-white font-bold font-technical text-xs tracking-widest hover:bg-white hover:text-black transition-all duration-300'
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          GITHUB
+                        </a>
+                      )}
+                    </div>
                   </motion.div>
                 )}
               </motion.div>
@@ -441,9 +454,10 @@ export default function Home() {
               >
                 <a
                   className='inline-block px-12 py-5 bg-[#914110] text-white font-bold font-technical text-xs tracking-[0.4em] hover:bg-white transition-all duration-500'
-                  href='#work'
+                  href='/resume.docx'
+                  download
                 >
-                  VIEW PROJECTS
+                  DOWNLOAD RESUME
                 </a>
               </motion.div>
             </motion.div>
