@@ -128,6 +128,7 @@ function FeaturedProjectsSection() {
               animate='visible'
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -8 }}
+              onClick={() => (window.location.href = `/projects/${project.id}`)}
             >
               <motion.div
                 className='relative overflow-hidden mb-8 md:mb-10 aspect-[16/10] bg-neutral-900'
@@ -170,18 +171,31 @@ function FeaturedProjectsSection() {
                   </motion.div>
                 )}
               </motion.div>
-              <div className='flex justify-between items-start'>
-                <div>
-                  <h3 className='text-3xl md:text-4xl font-serif text-white mb-3'>
-                    {project.title}
-                  </h3>
-                  <p className='font-sans text-sm text-[#CCCCCC] uppercase tracking-widest'>
-                    {project.category}
-                  </p>
+              <div className='flex flex-col gap-4'>
+                <div className='flex justify-between items-start'>
+                  <div>
+                    <h3 className='text-3xl md:text-4xl font-serif text-white mb-3'>
+                      {project.title}
+                    </h3>
+                    <p className='font-sans text-sm text-[#CCCCCC] uppercase tracking-widest'>
+                      {project.category}
+                    </p>
+                  </div>
+                  <span className='font-technical text-xs text-[#914110]'>
+                    {project.techStack}
+                  </span>
                 </div>
-                <span className='font-technical text-xs text-[#914110]'>
-                  {project.techStack}
-                </span>
+                <motion.button
+                  className='self-start px-8 py-3 bg-[#914110] text-white font-bold font-technical text-xs tracking-[0.2em] hover:bg-white hover:text-black transition-all duration-300'
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    window.location.href = `/projects/${project.id}`;
+                  }}
+                >
+                  VIEW MORE / DETAILS →
+                </motion.button>
               </div>
             </motion.div>
           ))}

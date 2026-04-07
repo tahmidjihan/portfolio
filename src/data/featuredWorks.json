@@ -4,71 +4,183 @@
     "title": "FoodHub WEBSITE",
     "category": "Platform / SaaS",
     "techStack": "NEXT.JS / NODE",
+    "mainTechStack": ["Next.js", "Node.js", "MongoDB", "Tailwind CSS"],
     "image": "/portfolios/1.png",
     "liveLink": "https://foodhub-frontend-sigma.vercel.app/",
-    "repoLink": "https://github.com/tahmidjihan/Foodhub-frontend"
+    "repoLink": "https://github.com/tahmidjihan/Foodhub-frontend",
+    "description": "A comprehensive food delivery platform connecting customers with local restaurants. Features include real-time order tracking, payment integration, restaurant management dashboard, and an intuitive user interface for seamless food ordering experiences.",
+    "challenges": [
+      "Implementing real-time order status updates with WebSocket connections",
+      "Optimizing image loading for restaurant menus with hundreds of items",
+      "Building a robust payment integration system with Stripe",
+      "Managing complex state across multiple user roles (customer, restaurant, admin)"
+    ],
+    "improvements": [
+      "Add AI-powered restaurant recommendations based on user preferences",
+      "Implement push notifications for mobile devices",
+      "Expand to support multi-language and multi-currency",
+      "Add advanced analytics dashboard for restaurant owners"
+    ]
   },
   {
     "id": 2,
     "title": "TEACUP WEBSITE",
     "category": "Platform / SaaS",
     "techStack": "NEXT.JS / NODE",
+    "mainTechStack": ["Next.js", "Node.js", "PostgreSQL", "Prisma"],
     "image": "/portfolios/2.png",
     "liveLink": "https://teacup.website",
-    "repoLink": "https://github.com/teacupweb/teacup"
+    "repoLink": "https://github.com/teacupweb/teacup",
+    "description": "A revolutionary platform that lowers the barrier to entry for businesses needing a digital presence. Teacup provides free websites with an affordable $85/month dashboard subscription, making professional web solutions accessible to all businesses.",
+    "challenges": [
+      "Designing a scalable multi-tenant architecture for multiple websites",
+      "Creating an intuitive dashboard for non-technical users",
+      "Handling Polar.sh payment processing and subscription management",
+      "Balancing feature richness with platform performance"
+    ],
+    "improvements": [
+      "Add e-commerce capabilities with integrated shopping cart",
+      "Implement AI-powered content generation for website descriptions",
+      "Add custom domain support with automated SSL provisioning",
+      "Build a template marketplace for diverse business needs"
+    ]
   },
   {
     "id": 3,
     "title": "DentaWave",
     "category": "Clinic Management System",
     "techStack": "NEXT.JS / STRIPE / NODE",
+    "mainTechStack": ["Next.js", "Stripe", "Node.js", "PostgreSQL"],
     "image": "/portfolios/3.png",
     "liveLink": "https://dentaflow-rho.vercel.app/",
-    "repoLink": "https://github.com/tahmidjihan/dentaFlow-frontend"
+    "repoLink": "https://github.com/tahmidjihan/dentaFlow-frontend",
+    "description": "A comprehensive dental clinic management system featuring appointment scheduling, patient records management, billing with Stripe integration, and automated reminders. Streamlines dental practice operations with modern, efficient workflows.",
+    "challenges": [
+      "Implementing HIPAA-compliant patient data storage and retrieval",
+      "Building a complex appointment scheduling system with conflict resolution",
+      "Integrating Stripe for seamless payment processing and invoicing",
+      "Creating an intuitive calendar interface for managing multiple dentists"
+    ],
+    "improvements": [
+      "Add telehealth integration for virtual consultations",
+      "Implement AI-powered appointment scheduling optimization",
+      "Add patient portal for self-service booking and records access",
+      "Integrate with dental imaging systems for X-ray management"
+    ]
   },
   {
     "id": 4,
     "title": "HABITERR",
     "category": "Habit Tracking App",
     "techStack": "NEXT.JS / SUPABASE",
+    "mainTechStack": ["Next.js", "Supabase", "TypeScript", "Tailwind CSS"],
     "image": "/portfolios/4.png",
     "liveLink": "https://habiterr.netlify.app/",
-    "repoLink": "https://github.com/teacupweb/habiterr"
+    "repoLink": "https://github.com/teacupweb/habiterr",
+    "description": "An elegant habit tracking application that helps users build and maintain positive routines. Features include streak tracking, progress visualization, customizable habit categories, and insightful analytics to motivate consistent behavior change.",
+    "challenges": [
+      "Designing an accurate streak calculation algorithm with timezone handling",
+      "Creating engaging data visualizations that motivate user engagement",
+      "Implementing real-time sync across multiple devices",
+      "Building an intuitive onboarding flow for new users"
+    ],
+    "improvements": [
+      "Add social features for accountability partners and group challenges",
+      "Implement AI-powered habit recommendations",
+      "Add integration with calendar apps for habit scheduling",
+      "Build a mobile app version with push notification reminders"
+    ]
   },
   {
     "id": 5,
     "title": "TEACUP DEMO",
     "category": "Query to site demo generator.",
     "techStack": "NEXT.JS",
+    "mainTechStack": ["Next.js", "React", "TypeScript", "Vercel AI SDK"],
     "image": "/portfolios/5.png",
     "liveLink": "https://teacup-demo.netlify.app/",
-    "repoLink": "https://github.com/teacupweb/demos"
+    "repoLink": "https://github.com/teacupweb/demos",
+    "description": "An innovative demo generator that converts natural language queries into functional website demos. Showcases the power of Teacup's platform by allowing potential clients to instantly visualize their ideas brought to life.",
+    "challenges": [
+      "Integrating AI models for natural language to code generation",
+      "Ensuring generated demos are visually appealing and functional",
+      "Optimizing generation speed for real-time demo creation",
+      "Handling edge cases in user query interpretation"
+    ],
+    "improvements": [
+      "Support more complex website layouts and interactions",
+      "Add customizable theme options in generated demos",
+      "Implement multi-page demo generation",
+      "Add export functionality for demo customization"
+    ]
   },
   {
     "id": 6,
     "title": "Boundless Barriers",
     "category": "Disability support website",
     "techStack": "REACT / TYPESCRIPT",
+    "mainTechStack": ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
     "image": "/portfolios/6.png",
     "liveLink": "https://boundlessbarriers.com.au/",
-    "repoLink": null
+    "repoLink": null,
+    "description": "A professional website for an Australian disability care company, designed with accessibility as a core principle. Features WCAG-compliant design, clear navigation, service information, and easy contact options for families seeking support services.",
+    "challenges": [
+      "Ensuring WCAG 2.1 AA compliance throughout the entire website",
+      "Designing an accessible interface that serves diverse user needs",
+      "Creating clear, simple navigation for users with varying abilities",
+      "Implementing screen reader compatibility across all pages"
+    ],
+    "improvements": [
+      "Add online booking system for support services",
+      "Implement a resource library with downloadable guides",
+      "Add multi-language support for diverse communities",
+      "Build a caregiver portal for family communication"
+    ]
   },
   {
     "id": 7,
     "title": "TOP CATALYST CONSULTING",
     "category": "CONSULTING WEBSITE",
     "techStack": "REACT / NODE",
+    "mainTechStack": ["React", "Node.js", "MongoDB", "Tailwind CSS"],
     "image": "/portfolios/7.png",
     "liveLink": "https://thetopcatalyst.com",
-    "repoLink": null
+    "repoLink": null,
+    "description": "A sleek, functional website for a study abroad and immigration consultancy. Showcases services, success stories, and provides easy consultation booking. Designed to build trust and convert visitors into clients through professional presentation.",
+    "challenges": [
+      "Creating an informative yet visually engaging service presentation",
+      "Building trust through effective testimonial and case study display",
+      "Implementing an efficient consultation booking system",
+      "Optimizing SEO for immigration and study abroad keywords"
+    ],
+    "improvements": [
+      "Add an AI-powered eligibility checker for visa applications",
+      "Implement a blog section for immigration updates and tips",
+      "Add live chat support for instant visitor engagement",
+      "Build a document upload portal for application processing"
+    ]
   },
   {
     "id": 8,
     "title": "RPL CATALYST",
     "category": "CONSULTING WEBSITE",
     "techStack": "NEXT.JS / TYPESCRIPT",
+    "mainTechStack": ["Next.js", "TypeScript", "Tailwind CSS", "Supabase"],
     "image": "/portfolios/8.png",
     "liveLink": "https://rplcatalyst.com.au",
-    "repoLink": null
+    "repoLink": null,
+    "description": "A professional website for an Australian RPL (Recognition of Prior Learning) consultancy. Features include course catalog, assessment tools, client testimonials, and streamlined contact forms. Built to serve the Australian education sector with modern web standards.",
+    "challenges": [
+      "Understanding and implementing Australian RPL requirements accurately",
+      "Creating an intuitive course browsing and enrollment experience",
+      "Building trust through professional design and clear value propositions",
+      "Optimizing for Australian market SEO and local search visibility"
+    ],
+    "improvements": [
+      "Add online RPL assessment quiz for self-evaluation",
+      "Implement a student progress tracking portal",
+      "Add video testimonials and success stories",
+      "Build integration with Australian education databases"
+    ]
   }
 ]
