@@ -1,14 +1,17 @@
 'use client';
 
 import { useParams, useRouter } from 'next/navigation';
-import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   fadeInUp,
   fadeInLeft,
   fadeInRight,
   staggerContainer,
 } from '@/animations/variants';
+import Spinner from '@/components/Spinner';
 import featuredWorks from '@/data/featuredWorks.json';
+import { useState } from 'react';
 
 function AnimatedSection({
   children,
@@ -58,32 +61,71 @@ export default function ProjectDetailPage() {
   const router = useRouter();
   const projectId = parseInt(params.id as string);
   const project = featuredWorks.find((p) => p.id === projectId);
+  const [isLoading, setIsLoading] = useState(false);
 
   if (!project) {
     return (
       <div className='min-h-screen bg-black flex items-center justify-center px-6'>
-        <div className='text-center'>
+        <motion.div
+          className='text-center'
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        >
           <h1 className='text-4xl md:text-6xl font-serif text-white mb-6'>
             Project Not Found
           </h1>
           <p className='font-sans text-lg text-[#CCCCCC] mb-8'>
             The project you&apos;re looking for doesn&apos;t exist.
           </p>
-          <motion.button
-            onClick={() => router.push('/')}
-            className='inline-block px-12 py-5 bg-[#914110] text-white font-bold font-technical text-xs tracking-[0.4em] hover:bg-white transition-all duration-500'
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            GO HOME
-          </motion.button>
-        </div>
+          <Link href='/' passHref>
+            <motion.button
+              className='inline-block px-12 py-5 bg-[#914110] text-white font-bold font-technical text-xs tracking-[0.4em] hover:bg-white transition-all duration-500'
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              GO HOME
+            </motion.button>
+          </Link>
+        </motion.div>
       </div>
     );
   }
 
+  const handleNavigation = (path: string) => {
+    setIsLoading(true);
+    router.push(path);
+  };
+
   return (
     <div className='min-h-screen bg-black'>
+      {isLoading && (
+        <motion.div
+          className='fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center'
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <motion.div
+            className='flex flex-col items-center gap-6'
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{
+              type: 'spring',
+              stiffness: 300,
+              damping: 20,
+            }}
+          >
+            <div className='relative'>
+              <div className='absolute inset-0 blur-xl bg-[#914110]/30 rounded-full animate-pulse' />
+              <Spinner size='lg' className='text-[#914110] relative z-10' />
+            </div>
+            <p className='font-technical text-xs tracking-[0.3em] text-[#CCCCCC]'>
+              LOADING...
+            </p>
+          </motion.div>
+        </motion.div>
+      )}
       {/* Navigation */}
       <motion.nav
         className='fixed top-0 w-full z-50 backdrop-blur-2xl bg-black/90'
@@ -93,20 +135,22 @@ export default function ProjectDetailPage() {
       >
         <div className='max-w-7xl mx-auto px-6 md:px-12 h-16 md:h-20'>
           <div className='flex items-center justify-between h-full'>
-            <motion.button
-              onClick={() => router.push('/')}
-              className='text-2xl font-serif tracking-tighter text-white hover:text-[#914110] transition-colors'
-              whileHover={{ scale: 1.05 }}
-            >
-              <span className='text-[#914110]'>T</span>J
-            </motion.button>
-            <motion.button
-              onClick={() => router.back()}
-              className='font-technical text-xs tracking-[0.3em] text-[#CCCCCC] hover:text-white transition-all duration-300'
-              whileHover={{ x: -4 }}
-            >
-              ← BACK
-            </motion.button>
+            <Link href='/' passHref>
+              <motion.button
+                className='text-2xl font-serif tracking-tighter text-white hover:text-[#914110] transition-colors'
+                whileHover={{ scale: 1.05 }}
+              >
+                <span className='text-[#914110]'>T</span>J
+              </motion.button>
+            </Link>
+            <Link href='/' passHref>
+              <motion.button
+                className='font-technical text-xs tracking-[0.3em] text-[#CCCCCC] hover:text-white transition-all duration-300'
+                whileHover={{ x: -4 }}
+              >
+                ← BACK
+              </motion.button>
+            </Link>
           </div>
         </div>
       </motion.nav>
@@ -269,14 +313,7 @@ export default function ProjectDetailPage() {
               Let&apos;s build something amazing for your business.
             </p>
             <motion.button
-              onClick={() => {
-                router.push('/');
-                setTimeout(() => {
-                  document
-                    .getElementById('contact')
-                    ?.scrollIntoView({ behavior: 'smooth' });
-                }, 100);
-              }}
+              onClick={() => handleNavigation('/')}
               className='inline-block px-12 py-5 bg-[#914110] text-white font-bold font-technical text-xs tracking-[0.4em] hover:bg-white transition-all duration-500'
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

@@ -1,6 +1,8 @@
 'use client';
 
 import { useRef, useState, useEffect } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import {
   motion,
   useScroll,
@@ -19,6 +21,7 @@ import {
 } from '@/animations/variants';
 import CursorFollower from '@/components/CursorFollower';
 import MusicVisualizer from '@/components/MusicVisualizer';
+import Spinner from '@/components/Spinner';
 import featuredWorks from '@/data/featuredWorks.json';
 import { FaReact, FaNodeJs, FaGitAlt, FaLinux, FaFigma } from 'react-icons/fa';
 import {
@@ -84,6 +87,8 @@ function StaggeredSection({
 
 function FeaturedProjectsSection() {
   const [currentPage, setCurrentPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
   const itemsPerPage = 4;
   const totalPages = Math.ceil(featuredWorks.length / itemsPerPage);
 
@@ -97,6 +102,11 @@ function FeaturedProjectsSection() {
     document
       .getElementById('work')
       ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  const handleProjectClick = (projectId: number) => {
+    setIsLoading(true);
+    router.push(`/projects/${projectId}`);
   };
 
   return (
@@ -128,7 +138,7 @@ function FeaturedProjectsSection() {
               animate='visible'
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -8 }}
-              onClick={() => (window.location.href = `/projects/${project.id}`)}
+              onClick={() => handleProjectClick(project.id)}
             >
               <motion.div
                 className='relative overflow-hidden mb-8 md:mb-10 aspect-[16/10] bg-neutral-900'
@@ -137,38 +147,13 @@ function FeaturedProjectsSection() {
               >
                 <img
                   alt={project.title}
-                  className='w-full h-full object-cover grayscale group-hover:scale-105 group-hover:opacity-50 transition-all duration-1000'
+                  className='w-full h-full object-cover grayscale group-hover:scale-105 transition-all duration-1000'
                   src={project.image}
                 />
-                {project.liveLink && (
-                  <motion.div
-                    className='absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-4'
-                    initial={{ opacity: 0 }}
-                    whileHover={{ opacity: 1 }}
-                  >
-                    <div className='flex items-center gap-4'>
-                      <a
-                        href={project.liveLink}
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        className='px-6 py-3 bg-[#914110] text-white font-bold font-technical text-xs tracking-widest hover:bg-white hover:text-black transition-all duration-300'
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        LIVE DEMO
-                      </a>
-                      {project.repoLink && (
-                        <a
-                          href={project.repoLink}
-                          target='_blank'
-                          rel='noopener noreferrer'
-                          className='px-6 py-3 border-2 border-white text-white font-bold font-technical text-xs tracking-widest hover:bg-white hover:text-black transition-all duration-300'
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          GITHUB
-                        </a>
-                      )}
-                    </div>
-                  </motion.div>
+                {isLoading && (
+                  <div className='absolute inset-0 bg-black/70 flex items-center justify-center'>
+                    <Spinner size='lg' />
+                  </div>
                 )}
               </motion.div>
               <div className='flex flex-col gap-4'>
@@ -185,17 +170,19 @@ function FeaturedProjectsSection() {
                     {project.techStack}
                   </span>
                 </div>
-                <motion.button
-                  className='self-start px-8 py-3 bg-[#914110] text-white font-bold font-technical text-xs tracking-[0.2em] hover:bg-white hover:text-black transition-all duration-300'
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    window.location.href = `/projects/${project.id}`;
-                  }}
-                >
-                  VIEW MORE / DETAILS →
-                </motion.button>
+                <Link href={`/projects/${project.id}`} passHref>
+                  <motion.button
+                    className='self-start px-8 py-3 bg-[#914110] text-white font-bold font-technical text-xs tracking-[0.2em] hover:bg-white hover:text-black transition-all duration-300'
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleProjectClick(project.id);
+                    }}
+                  >
+                    VIEW MORE / DETAILS →
+                  </motion.button>
+                </Link>
               </div>
             </motion.div>
           ))}
@@ -254,6 +241,7 @@ function FeaturedProjectsSection() {
 
 export default function Home() {
   const containerRef = useRef(null);
+  const router = useRouter();
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start start', 'end end'],
