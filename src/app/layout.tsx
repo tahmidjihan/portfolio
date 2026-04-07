@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { LenisSmoothScroll } from "@/components/LenisSmoothScroll";
 
 export const metadata: Metadata = {
-  title: "Tahmid Jihan | Web Developer & Creative Problem Solver",
-  description: "Building digital experiences that combine technical precision with creative flair. Passionate about solving complex problems through clean, efficient code and intuitive user interfaces.",
+  title: "Tahmid Jihan | Full-Stack Web Developer & Entrepreneur",
+  description: "Building high-performance, scalable digital solutions with a proven track record of working with international companies.",
 };
 
 export default function RootLayout({
@@ -14,13 +15,17 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        <link rel="preconnect" href="https://fonts.cdnfonts.com" />
+        <link href="https://fonts.cdnfonts.com/css/prata-2" rel="stylesheet" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
       </head>
-      <body className="bg-zinc-950 text-slate-100 antialiased">
-        {children}
+      <body className="bg-black text-white selection:bg-[#914110] selection:text-black antialiased">
+        <LenisSmoothScroll>
+          {children}
+        </LenisSmoothScroll>
       </body>
     </html>
   );

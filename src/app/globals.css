@@ -1,35 +1,74 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
+  --background: #000000;
+  --foreground: #ffffff;
+  --primary: #914110;
+  --secondary-text: #CCCCCC;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #f1f5f9;
-  }
+@font-face {
+  font-family: 'Espoir';
+  src: local('Noto Serif'), serif;
+}
+
+@font-face {
+  font-family: 'Ailerons';
+  src: local('Manrope'), sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Eirene Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 
-h1, h2, h3, h4, .font-display {
-  font-family: 'Space Grotesk', sans-serif;
+.font-serif {
+  font-family: 'Prata', serif;
+  font-style: normal;
 }
 
-.hero-gradient {
-  background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+.font-sans {
+  font-family: 'Eirene Sans', sans-serif;
 }
 
-.glass-card {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+.font-technical {
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.signature-stroke {
+  border-bottom: 1px solid #914110;
+}
+
+.text-accent {
+  color: #914110;
+}
+
+.bg-accent {
+  background-color: #914110;
+}
+
+.border-accent {
+  border-color: #914110;
+}
+
+.hero-title {
+  font-size: clamp(4rem, 15vw, 12rem);
+  line-height: 0.9;
 }
 
 .material-symbols-outlined {
@@ -40,70 +79,35 @@ h1, h2, h3, h4, .font-display {
     'opsz' 24;
 }
 
-/* Scroll Animation Classes */
-.animate-on-scroll {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-.animate-on-scroll.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+::-webkit-scrollbar-track {
+  background: #000000;
 }
 
-/* Fade in from left */
-.animate-on-scroll-left {
-  opacity: 0;
-  transform: translateX(-30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 0;
 }
 
-.animate-on-scroll-left.is-visible {
-  opacity: 1;
-  transform: translateX(0);
+::-webkit-scrollbar-thumb:hover {
+  background: #914110;
 }
 
-/* Fade in from right */
-.animate-on-scroll-right {
-  opacity: 0;
-  transform: translateX(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+/* Selection color */
+::selection {
+  background: #914110;
+  color: #000000;
 }
-
-.animate-on-scroll-right.is-visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* Scale up */
-.animate-on-scroll-scale {
-  opacity: 0;
-  transform: scale(0.95);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.animate-on-scroll-scale.is-visible {
-  opacity: 1;
-  transform: scale(1);
-}
-
-/* Stagger delays */
-.stagger-1 { transition-delay: 0.1s; }
-.stagger-2 { transition-delay: 0.2s; }
-.stagger-3 { transition-delay: 0.3s; }
-.stagger-4 { transition-delay: 0.4s; }
-.stagger-5 { transition-delay: 0.5s; }
-.stagger-6 { transition-delay: 0.6s; }
 
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .animate-on-scroll,
-  .animate-on-scroll-left,
-  .animate-on-scroll-right,
-  .animate-on-scroll-scale {
-    opacity: 1;
-    transform: none;
-    transition: none;
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "title": "FoodHub WEBSITE",
+    "category": "Platform / SaaS",
+    "techStack": "NEXT.JS / NODE",
+    "image": "/portfolios/1.png",
+    "liveLink": "https://foodhub-frontend-sigma.vercel.app/",
+    "repoLink": null
+  },
+  {
+    "id": 2,
+    "title": "TEACUP WEBSITE",
+    "category": "Platform / SaaS",
+    "techStack": "NEXT.JS / NODE",
+    "image": "/portfolios/2.png",
+    "liveLink": "https://teacup.website",
+    "repoLink": null
+  },
+  {
+    "id": 3,
+    "title": "DentaWave",
+    "category": "Clinic Management System",
+    "techStack": "NEXT.JS / STRIPE / NODE",
+    "image": "/portfolios/3.png",
+    "liveLink": null,
+    "repoLink": null
+  },
+  {
+    "id": 4,
+    "title": "HABITERR",
+    "category": "Habit Tracking App",
+    "techStack": "NEXT.JS / SUPABASE",
+    "image": "/portfolios/4.png",
+    "liveLink": null,
+    "repoLink": null
+  },
+  {
+    "id": 5,
+    "title": "TEACUP DEMO",
+    "category": "Query to site demo generator.",
+    "techStack": "NEXT.JS",
+    "image": "/portfolios/5.png",
+    "liveLink": null,
+    "repoLink": null
+  },
+  {
+    "id": 6,
+    "title": "Boundless Barriers",
+    "category": "Disability support website",
+    "techStack": "REACT / TYPESCRIPT",
+    "image": "/portfolios/6.png",
+    "liveLink": "https://boundlessbarriers.com.au/",
+    "repoLink": null
+  },
+  {
+    "id": 7,
+    "title": "TOP CATALYST CONSULTING",
+    "category": "CONSULTING WEBSITE",
+    "techStack": "REACT / NODE",
+    "image": "/portfolios/7.png",
+    "liveLink": "https://thetopcatalyst.com",
+    "repoLink": null
+  },
+  {
+    "id": 8,
+    "title": "RPL CATALYST",
+    "category": "CONSULTING WEBSITE",
+    "techStack": "NEXT.JS / TYPESCRIPT",
+    "image": "/portfolios/8.png",
+    "liveLink": null,
+    "repoLink": null
+  }
+]

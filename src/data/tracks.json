@@ -1,0 +1,20 @@
+[
+  {
+    "id": 0,
+    "name": "Elephant",
+    "src": "/tracks/Elephant.mp3",
+    "duration": 180
+  },
+  {
+    "id": 1,
+    "name": "Hill Glory",
+    "src": "/tracks/Hill Glory.mp3",
+    "duration": 210
+  },
+  {
+    "id": 2,
+    "name": "Roots",
+    "src": "/tracks/Roots.mp3",
+    "duration": 160
+  }
+]

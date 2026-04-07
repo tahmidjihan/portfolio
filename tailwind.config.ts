@@ -10,16 +10,29 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#6366f1",
-        "background-light": "#f8fafc",
-        "background-dark": "#0a0a0a",
+        primary: "#8B5A2B",
+        background: "#000000",
+        surface: "#0a0a0a",
+        "on-surface": "#ffffff",
+        "on-surface-variant": "#CCCCCC",
+        "neutral-900": "#1a1a1a",
+        "neutral-950": "#0d0d0d",
       },
       fontFamily: {
-        display: ["Space Grotesk", "sans-serif"],
-        sans: ["Inter", "sans-serif"],
+        serif: ["Prata", "serif"],
+        sans: ["Eirene Sans", "sans-serif"],
+        technical: ["Outfit", "sans-serif"],
       },
       borderRadius: {
-        DEFAULT: "0.5rem",
+        DEFAULT: "0rem",
+        lg: "0rem",
+        xl: "0rem",
+        full: "9999px",
+      },
+      letterSpacing: {
+        "technical": "0.3em",
+        "technical-wide": "0.4em",
+        "technical-wider": "0.5em",
       },
     },
   },

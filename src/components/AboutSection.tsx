@@ -8,36 +8,51 @@ export default function AboutSection() {
   const cardsAnim = useScrollAnimation({ threshold: 0.2 })
 
   return (
-    <section className="py-32 bg-zinc-900/30" id="about">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          <div 
+    <section className="py-32 lg:py-40 bg-bg-secondary" id="about">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="mb-20">
+          <p className="text-accent text-sm font-semibold tracking-[0.2em] uppercase mb-4">About</p>
+          <h2 className="text-4xl md:text-5xl font-bold font-display tracking-tight text-text-primary">
+            Professional Profile
+          </h2>
+        </div>
+
+        {/* Asymmetric Grid Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
+          {/* Photo Column - 2 cols */}
+          <div
             ref={imageAnim.ref}
-            className={`relative group animate-on-scroll-left ${imageAnim.isVisible ? 'is-visible' : ''}`}
+            className={`lg:col-span-2 animate-on-scroll-left ${imageAnim.isVisible ? 'is-visible' : ''}`}
           >
-            <div className="absolute -inset-4 bg-primary/20 rounded-3xl blur-2xl group-hover:bg-primary/30 transition duration-500"></div>
-            <div className="relative aspect-[4/5] bg-zinc-800 rounded-2xl overflow-hidden border border-white/10">
-              <img 
-                alt="Portrait of Tahmid Jihan" 
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700" 
-                src="tahmid.png"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
-                <p className="text-white text-sm font-medium tracking-widest uppercase">Full-Stack Developer</p>
+            <div className="relative group">
+              {/* Accent glow behind photo */}
+              <div className="absolute -inset-4 bg-accent/10 rounded-2xl blur-2xl group-hover:bg-accent/15 transition-all duration-700" />
+              
+              {/* Photo Container */}
+              <div className="relative aspect-[4/5] bg-bg-tertiary rounded-2xl overflow-hidden border border-border-subtle">
+                <img
+                  alt="Portrait of Tahmid Jihan"
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                  src="tahmid.png"
+                />
+              </div>
+
+              {/* Floating Label */}
+              <div className="absolute bottom-6 left-6 right-6 glass-card rounded-xl p-4">
+                <p className="text-text-primary text-sm font-medium tracking-widest uppercase">
+                  Full-Stack Developer
+                </p>
               </div>
             </div>
           </div>
-          
-          <div 
+
+          {/* Content Column - 3 cols */}
+          <div
             ref={contentAnim.ref}
-            className={`animate-on-scroll-right ${contentAnim.isVisible ? 'is-visible' : ''}`}
+            className={`lg:col-span-3 animate-on-scroll-right ${contentAnim.isVisible ? 'is-visible' : ''}`}
           >
-            <h2 className="text-4xl font-bold font-display mb-8 relative inline-block">
-              Professional Profile
-              <span className="absolute -bottom-2 left-0 w-12 h-1 bg-primary"></span>
-            </h2>
-            
-            <div className="space-y-6 text-slate-400 leading-relaxed text-lg">
+            <div className="space-y-6 text-text-secondary leading-relaxed text-lg">
               <p>
                 Tahmid Jihan is a versatile Full-Stack Web Developer and entrepreneur known for building high-performance, scalable digital solutions. He specializes in modern web architectures and has a proven track record of working with international companies, particularly within the Australian market.
               </p>
@@ -48,18 +63,19 @@ export default function AboutSection() {
                 His career is marked by rapid progression through various international roles, from freelance web development to founding his own startup, demonstrating adaptability and entrepreneurial spirit.
               </p>
             </div>
-            
-            <div 
+
+            {/* Expertise Cards */}
+            <div
               ref={cardsAnim.ref}
-              className={`mt-10 grid grid-cols-2 gap-4 animate-on-scroll stagger-2 ${cardsAnim.isVisible ? 'is-visible' : ''}`}
+              className={`mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4 animate-on-scroll stagger-2 ${cardsAnim.isVisible ? 'is-visible' : ''}`}
             >
-              <div className="p-4 rounded-xl bg-white/5 border border-white/5 hover:border-primary/30 transition-colors">
-                <h4 className="font-bold text-white mb-1">Technical Expertise</h4>
-                <p className="text-sm text-slate-500">React, Next.js, Node.js, PostgreSQL</p>
+              <div className="p-6 rounded-xl bg-bg-tertiary border border-border-subtle hover:border-accent/30 transition-all duration-500 group">
+                <h4 className="font-bold text-text-primary mb-2 group-hover:text-accent transition-colors">Technical Expertise</h4>
+                <p className="text-sm text-text-tertiary">React, Next.js, Node.js, PostgreSQL</p>
               </div>
-              <div className="p-4 rounded-xl bg-white/5 border border-white/5 hover:border-primary/30 transition-colors">
-                <h4 className="font-bold text-white mb-1">Current Focus</h4>
-                <p className="text-sm text-slate-500">Teacup Website Platform</p>
+              <div className="p-6 rounded-xl bg-bg-tertiary border border-border-subtle hover:border-accent/30 transition-all duration-500 group">
+                <h4 className="font-bold text-text-primary mb-2 group-hover:text-accent transition-colors">Current Focus</h4>
+                <p className="text-sm text-text-tertiary">Teacup Website Platform</p>
               </div>
             </div>
           </div>
