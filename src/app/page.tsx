@@ -20,13 +20,7 @@ import {
 import CursorFollower from '@/components/CursorFollower';
 import MusicVisualizer from '@/components/MusicVisualizer';
 import featuredWorks from '@/data/featuredWorks.json';
-import {
-  FaReact,
-  FaNodeJs,
-  FaGitAlt,
-  FaLinux,
-  FaFigma,
-} from 'react-icons/fa';
+import { FaReact, FaNodeJs, FaGitAlt, FaLinux, FaFigma } from 'react-icons/fa';
 import {
   SiNextdotjs,
   SiTypescript,
@@ -92,7 +86,7 @@ function FeaturedProjectsSection() {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 4;
   const totalPages = Math.ceil(featuredWorks.length / itemsPerPage);
-  
+
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const currentProjects = featuredWorks.slice(startIndex, endIndex);
@@ -100,7 +94,9 @@ function FeaturedProjectsSection() {
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
     // Smooth scroll to top of projects section
-    document.getElementById('work')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document
+      .getElementById('work')
+      ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   return (
@@ -113,10 +109,11 @@ function FeaturedProjectsSection() {
           className='font-technical text-sm text-[#914110]'
           variants={fadeInRight}
         >
-          {String(currentPage).padStart(2, '0')} / {String(totalPages).padStart(2, '0')}
+          {String(currentPage).padStart(2, '0')} /{' '}
+          {String(totalPages).padStart(2, '0')}
         </motion.span>
       </AnimatedSection>
-      
+
       <AnimatePresence mode='wait'>
         <StaggeredSection
           key={currentPage}
@@ -188,9 +185,11 @@ function FeaturedProjectsSection() {
             whileHover={{ scale: currentPage === 1 ? 1 : 1.05 }}
             whileTap={{ scale: currentPage === 1 ? 1 : 0.95 }}
           >
-            <span className='material-symbols-outlined text-sm'>chevron_left</span>
+            <span className='material-symbols-outlined text-sm'>
+              chevron_left
+            </span>
           </motion.button>
-          
+
           <div className='flex gap-2'>
             {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
               <motion.button
@@ -216,7 +215,9 @@ function FeaturedProjectsSection() {
             whileHover={{ scale: currentPage === totalPages ? 1 : 1.05 }}
             whileTap={{ scale: currentPage === totalPages ? 1 : 0.95 }}
           >
-            <span className='material-symbols-outlined text-sm'>chevron_right</span>
+            <span className='material-symbols-outlined text-sm'>
+              chevron_right
+            </span>
           </motion.button>
         </AnimatedSection>
       )}
@@ -236,7 +237,9 @@ export default function Home() {
   const heroScale = useTransform(scrollYProgress, [0, 0.15], [1, 0.95]);
 
   const [navBg, setNavBg] = useState(false);
-  const [currentTrackIndex, setCurrentTrackIndex] = useState<number | null>(null);
+  const [currentTrackIndex, setCurrentTrackIndex] = useState<number | null>(
+    null,
+  );
 
   useMotionValueEvent(scrollYProgress, 'change', (latest) => {
     if (latest > 0.02) {
@@ -336,7 +339,11 @@ export default function Home() {
               className='font-technical text-xs text-[#914110] block mb-8'
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              transition={{
+                duration: 0.8,
+                delay: 0.3,
+                ease: [0.16, 1, 0.3, 1],
+              }}
             >
               FULL-STACK WEB DEVELOPER &amp; ENTREPRENEUR
             </motion.span>
@@ -477,7 +484,11 @@ export default function Home() {
                   { name: 'React', level: 'Expert', icon: FaReact },
                   { name: 'Next.js', level: 'Expert', icon: SiNextdotjs },
                   { name: 'TypeScript', level: 'Expert', icon: SiTypescript },
-                  { name: 'Tailwind CSS', level: 'Expert', icon: SiTailwindcss },
+                  {
+                    name: 'Tailwind CSS',
+                    level: 'Expert',
+                    icon: SiTailwindcss,
+                  },
                 ].map((tech, i) => {
                   const IconComponent = tech.icon;
                   return (
@@ -643,8 +654,8 @@ export default function Home() {
                   </p>
                   <p className='font-sans text-base text-[#CCCCCC] leading-relaxed'>
                     Served as a developer for this Australia-based organization,
-                    further solidifying experience in the Australian professional
-                    landscape and cross-cultural collaboration.
+                    further solidifying experience in the Australian
+                    professional landscape and cross-cultural collaboration.
                   </p>
                 </div>
               </AnimatedSection>
@@ -669,9 +680,9 @@ export default function Home() {
                     BOUNDLESS BARRIERS — DISABILITY CARE
                   </p>
                   <p className='font-sans text-base text-[#CCCCCC] leading-relaxed'>
-                    Contributed technical skills to support digital infrastructure
-                    for this Australian disability care company, enhancing their
-                    online presence and operational efficiency.
+                    Contributed technical skills to support digital
+                    infrastructure for this Australian disability care company,
+                    enhancing their online presence and operational efficiency.
                   </p>
                 </div>
               </AnimatedSection>
@@ -809,7 +820,11 @@ export default function Home() {
                 </AnimatedSection>
 
                 {/* Music Player */}
-                <AnimatedSection className='mb-12 md:mb-16' variant={fadeInLeft} delay={0.1}>
+                <AnimatedSection
+                  className='mb-12 md:mb-16'
+                  variant={fadeInLeft}
+                  delay={0.1}
+                >
                   <MusicVisualizer />
                 </AnimatedSection>
               </div>
@@ -839,8 +854,8 @@ export default function Home() {
                     </h3>
                     <p className='font-sans text-sm text-[#CCCCCC] leading-relaxed'>
                       Combining visual creativity with lyrical expression. Work
-                      spans multiple creative mediums, showcasing versatility and
-                      artistic depth.
+                      spans multiple creative mediums, showcasing versatility
+                      and artistic depth.
                     </p>
                   </motion.div>
                 </div>
@@ -850,10 +865,7 @@ export default function Home() {
         </section>
 
         {/* Contact Section */}
-        <section
-          className='py-40 md:py-60 px-6 md:px-12 bg-black'
-          id='contact'
-        >
+        <section className='py-40 md:py-60 px-6 md:px-12 bg-black' id='contact'>
           <div className='max-w-4xl mx-auto'>
             <AnimatedSection className='text-center mb-24 md:mb-32'>
               <h2 className='text-6xl md:text-8xl font-serif text-white mb-6'>
@@ -988,7 +1000,7 @@ export default function Home() {
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          &copy; 2024 Tahmid Jihan. All rights reserved.
+          &copy; {new Date().getFullYear()} Tahmid Jihan. All rights reserved.
         </motion.div>
       </footer>
     </div>

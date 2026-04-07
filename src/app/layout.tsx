@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { LenisSmoothScroll } from "@/components/LenisSmoothScroll";
+import { Inter } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
   title: "Tahmid Jihan | Full-Stack Web Developer & Entrepreneur",
@@ -13,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className={cn("scroll-smooth", "font-sans", inter.variable)}>
       <head>
         <link rel="preconnect" href="https://fonts.cdnfonts.com" />
         <link href="https://fonts.cdnfonts.com/css/prata-2" rel="stylesheet" />
