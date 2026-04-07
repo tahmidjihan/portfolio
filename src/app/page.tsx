@@ -240,6 +240,7 @@ export default function Home() {
   const [currentTrackIndex, setCurrentTrackIndex] = useState<number | null>(
     null,
   );
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useMotionValueEvent(scrollYProgress, 'change', (latest) => {
     if (latest > 0.02) {
@@ -253,79 +254,139 @@ export default function Home() {
     setCurrentTrackIndex(currentTrackIndex === null ? 0 : null);
   };
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setMobileMenuOpen(false);
+    }
+  };
+
+  const navItems = [
+    { id: 'work', label: 'PROJECTS' },
+    { id: 'about', label: 'ABOUT' },
+    { id: 'tech-stack', label: 'TECH STACK' },
+    { id: 'experience', label: 'EXPERIENCE' },
+    { id: 'contact', label: 'CONTACT' },
+  ];
+
   return (
     <div ref={containerRef}>
       <CursorFollower />
 
       {/* Navigation */}
       <motion.nav
-        className='fixed top-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-6 backdrop-blur-2xl'
+        className='fixed top-0 w-full z-50 backdrop-blur-2xl'
+        initial={{ y: -100, opacity: 0 }}
         animate={{
-          backgroundColor: navBg ? 'rgba(0,0,0,0.85)' : 'rgba(0,0,0,0.4)',
+          y: 0,
+          opacity: 1,
+          backgroundColor: navBg ? 'rgba(0,0,0,0.9)' : 'rgba(0,0,0,0.3)',
         }}
-        transition={{ duration: 0.3 }}
+        transition={{
+          y: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+          opacity: { duration: 0.6 },
+          backgroundColor: { duration: 0.3 },
+        }}
       >
-        <motion.div
-          className='text-2xl font-serif tracking-tighter text-white'
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        >
-          TJ
-        </motion.div>
-        <motion.div
-          className='hidden md:flex gap-12'
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <a
-            className='text-white border-b border-[#914110] pb-1 font-technical text-xs tracking-[0.3em]'
-            href='#work'
-          >
-            PROJECTS
-          </a>
-          <a
-            className='text-[#CCCCCC] hover:text-white transition-colors duration-500 font-technical text-xs tracking-[0.3em]'
-            href='#about'
-          >
-            ABOUT
-          </a>
-          <a
-            className='text-[#CCCCCC] hover:text-white transition-colors duration-500 font-technical text-xs tracking-[0.3em]'
-            href='#tech-stack'
-          >
-            TECH STACK
-          </a>
-          <a
-            className='text-[#CCCCCC] hover:text-white transition-colors duration-500 font-technical text-xs tracking-[0.3em]'
-            href='#experience'
-          >
-            EXPERIENCE
-          </a>
-          <a
-            className='text-[#CCCCCC] hover:text-white transition-colors duration-500 font-technical text-xs tracking-[0.3em]'
-            href='#contact'
-          >
-            CONTACT
-          </a>
-        </motion.div>
-        <motion.div
-          className='hidden md:block'
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <a
-            className='font-technical text-xs text-[#914110] tracking-[0.3em] uppercase'
-            href='#contact'
-          >
-            Get In Touch
-          </a>
-        </motion.div>
-        <div className='md:hidden text-white'>
-          <span className='material-symbols-outlined'>menu</span>
+        <div className='max-w-7xl mx-auto px-6 md:px-12 h-16 md:h-20'>
+          <div className='flex items-center justify-between h-full'>
+            {/* Logo - Left */}
+            <motion.div
+              className='text-2xl font-serif tracking-tighter text-white'
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <span className='text-[#914110]'>T</span>J
+            </motion.div>
+
+            {/* Desktop Navigation - Right */}
+            <motion.div
+              className='hidden md:flex gap-2'
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            >
+              {navItems.map((item, index) => (
+                <motion.a
+                  key={item.id}
+                  className='px-4 py-2 text-[#CCCCCC] hover:text-white hover:bg-neutral-800 rounded-md transition-all duration-300 font-technical text-xs tracking-[0.2em] cursor-pointer'
+                  href={`#${item.id}`}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.3 + index * 0.1,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                  whileHover={{
+                    y: -2,
+                    transition: { duration: 0.2 },
+                  }}
+                >
+                  {item.label}
+                </motion.a>
+              ))}
+            </motion.div>
+
+            {/* Mobile Menu Button */}
+            <motion.button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className='md:hidden p-2 text-white'
+              aria-label='Toggle menu'
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <motion.span
+                className='material-symbols-outlined block'
+                animate={{ rotate: mobileMenuOpen ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                {mobileMenuOpen ? 'close' : 'menu'}
+              </motion.span>
+            </motion.button>
+          </div>
         </div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              className='md:hidden bg-black/95 backdrop-blur-xl border-t border-neutral-900'
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{
+                height: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
+                opacity: { duration: 0.3 },
+              }}
+            >
+              <div className='px-6 py-4 space-y-1'>
+                {navItems.map((item, index) => (
+                  <motion.a
+                    key={item.id}
+                    className='block w-full text-left px-4 py-3 rounded-md text-base font-technical tracking-[0.2em] text-[#CCCCCC] hover:bg-neutral-800 hover:text-white transition-colors cursor-pointer'
+                    href={`#${item.id}`}
+                    onClick={() => setMobileMenuOpen(false)}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{
+                      duration: 0.4,
+                      delay: index * 0.08,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    {item.label}
+                  </motion.a>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.nav>
 
       <main>
